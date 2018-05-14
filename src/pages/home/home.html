@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
+
+  <ion-card>
+    <img src="http://i.dailymail.co.uk/i/pix/2012/08/25/article-0-14B01022000005DC-25_964x513.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Mammal embryos that already look just like mum.
+        </ion-card-title>
+        <p>
+          <ion-icon name="md-contact"></ion-icon> Alejandro Castañeda
+        </p>
+        <p>
+          <ion-icon name="md-calendar"></ion-icon> 19 May 2018 17:00 PM
+        </p>
+        <p>
+          <ion-icon name="md-leaf"></ion-icon> Congreso Nacional 2018
+        </p>
+
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small style="float:right;">
+          <button ion-button icon-right>
+            Detalles
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+          </button>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <img src="http://i.dailymail.co.uk/i/pix/2012/05/05/article-2139849-058D53E20000044D-102_468x332.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Eye size determined by maximum running speed in mammals.
+        </ion-card-title>
+        <p>
+          <ion-icon name="md-contact"></ion-icon> Alejandro Castañeda
+        </p>
+        <p>
+          <ion-icon name="md-calendar"></ion-icon> 19 May 2018 20:00 PM
+        </p>
+        <p>
+          <ion-icon name="md-leaf"></ion-icon> Congreso Nacional 2018
+        </p>
+
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small style="float:right;">
+          <button ion-button icon-right>
+            Detalles
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+          </button>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

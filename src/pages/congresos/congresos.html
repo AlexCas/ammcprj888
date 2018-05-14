@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CongresosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Congresos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide>
+      <h4>Congreso Edición 2018</h4>
+      <img src="http://www.nationalmammal.org/images/Bison-National-Mammal-Seal.png" alt="" width="100%">
+    </ion-slide>
+
+    <ion-slide>
+      <h4 >Programa del Congreso</h4>
+      <ion-list  no-lines>
+      <ion-item ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+        <ion-thumbnail item-start>
+        <img src="{{item.image}}">
+        </ion-thumbnail>
+        <h2>{{ item.name }}</h2>
+        <p>{{item.date}}</p>
+        <button ion-button clear item-end>View</button>
+      </ion-item>
+
+    </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="https://d33v4339jhl8k0.cloudfront.net/docs/assets/54dd53ebe4b086c0c0966e7a/images/5784ed73903360751e721b54/file-xSpXotPi0I.png" alt="" height="100%">
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

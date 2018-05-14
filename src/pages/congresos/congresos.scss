@@ -1,0 +1,34 @@
+page-congresos {
+  .swiper-pagination-bullet-active{
+    background: #14826a;
+  }
+  .button-clear-ios{
+    color: #ffffff;
+    background-color: #14826a;
+  }
+  .card-background-page {
+
+    .ion-card-pos {
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 56%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 72%;
+      width: 100%;
+      color: #fff;
+    }
+
+  }
+}
