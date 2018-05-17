@@ -11,6 +11,8 @@ import { DocumentosPage } from '../pages/documentos/documentos';
 import { InteresesPage } from '../pages/intereses/intereses';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ContactoPage } from '../pages/contacto/contacto';
+import { TabsPage } from '../pages/tabs/tabs';
+import { SearchPage } from '../pages/search/search';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +20,7 @@ import { ContactoPage } from '../pages/contacto/contacto';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = TabsPage;
 
   pages: Array<{title: string, component: any, icon: any}>;
 
@@ -27,13 +29,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage, icon: 'md-home' },
-      { title: 'Congreso', component: CongresosPage, icon: 'md-list-box' },
-      { title: 'Programa', component: ProgramaPage, icon: 'md-list' },
-      { title: 'Documentos', component: DocumentosPage, icon: 'md-book' },
-      { title: 'Intereses', component: InteresesPage, icon: 'md-bulb' },
-      { title: 'Perfil', component: PerfilPage, icon: 'md-contact' },
-      { title: 'Contacto', component: ContactoPage, icon: 'md-contacts' }
+      { title: 'Congress', component: CongresosPage, icon: 'md-list-box' },
+      { title: 'Program', component: ProgramaPage, icon: 'md-list' },
+      { title: 'Documents', component: DocumentosPage, icon: 'md-book' },
+      { title: 'Contact', component: ContactoPage, icon: 'md-contacts' }
     ];
 
   }

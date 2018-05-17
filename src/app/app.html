@@ -1,24 +1,5 @@
 <ion-menu [content]="content">
-  <!-- <ion-header>
-    <ion-toolbar>
-      <ion-title>Cazador</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
 
-  <!-- <ion-content >
-    <ion-list>
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="">
-        </ion-avatar>
-        <h2>{{ gt }}</h2>
-        <p>{{ plataforma }}</p>
-      </ion-item>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="border-style: none">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content> -->
   <ion-content style="top:0px !important;" class="side-menu-left side-menu-gradient">
     <div class="spacer" style="width: 268px; height: 24px;"></div>
     <div class="profile-image">
@@ -26,7 +7,7 @@
     </div>
     <div class="spacer" style=" color:#313131; width: 268px; height: 19px;"></div>
     <ion-list id="menu-list1" no-lines style="font-weight:250;">
-      <ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="side-menu-item">
+      <ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="side-menu-item" style="margin:10px;">
         <ion-icon name="{{p.icon}}"></ion-icon>
         {{p.title}}
       </ion-item>
