@@ -20,19 +20,23 @@ import { SearchPage } from '../pages/search/search';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TabsPage;
+  rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any, icon: any}>;
+  pages: Array<{title: string, component: any, icon: any, page: any}>;
+
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Congress', component: CongresosPage, icon: 'md-list-box' },
-      { title: 'Program', component: ProgramaPage, icon: 'md-list' },
-      { title: 'Documents', component: DocumentosPage, icon: 'md-book' },
-      { title: 'Contact', component: ContactoPage, icon: 'md-contacts' }
+      { title: 'Home', component: HomePage, icon: 'md-home', page: 'congress' },
+      { title: 'Congress', component: CongresosPage, icon: 'md-list-box', page: 'congress' },
+      { title: 'Program', component: ProgramaPage, icon: 'md-list', page: 'program' },
+      { title: 'Documents', component: DocumentosPage, icon: 'md-book', page: 'documents' },
+      { title: 'Marks', component: InteresesPage, icon: 'md-bookmark', page: 'congress' },
+      { title: 'Profile', component: PerfilPage, icon: 'md-person', page: 'congress' },
+      { title: 'Contact', component: ContactoPage, icon: 'md-contacts', page: 'contact' }
     ];
 
   }
@@ -41,14 +45,14 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#53b9a6');
       this.splashScreen.hide();
     });
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+  openPage(page, par) {
+    this.nav.setRoot(page.component, {
+      'page': par,
+    });
   }
 }
