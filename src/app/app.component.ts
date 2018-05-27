@@ -13,6 +13,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { ContactoPage } from '../pages/contacto/contacto';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SearchPage } from '../pages/search/search';
+import {Http, Headers, RequestOptions} from '@angular/http';
 
 @Component({
   templateUrl: 'app.html'
