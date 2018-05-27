@@ -13,7 +13,11 @@
 
   <ion-card class="card-content-up">
     <ion-card-content>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis praesentium omnis excepturi, nihil dicta ullam a facilis minus sed deserunt quasi, architecto explicabo soluta est, ea sunt magnam hic odit.</p>
+      <ion-list no-lines>
+        <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+          {{ item }}
+        </button>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 

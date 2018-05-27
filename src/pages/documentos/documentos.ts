@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
 
 /**
  * Generated class for the DocumentosPage page.
@@ -15,11 +16,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DocumentosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  documentos: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+    this.getDocumentos();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DocumentosPage');
+  }
+
+  getDocumentos(){
+    this.restProvider.getDocumentos()
+    .then(data => {
+      this.documentos = data;
+    });
   }
 
 }
