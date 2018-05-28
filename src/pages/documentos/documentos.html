@@ -22,11 +22,11 @@
         <div>
           <ion-item *ngFor="let doc of documentos">
             <ion-thumbnail item-start>
-              <img src="assets/img/thumbnail-totoro.png">
+              <img src="assets/imgs/book.png">
             </ion-thumbnail>
             <h2>{{ doc.nombre }}</h2>
             <p>{{ doc.descripcion }}</p>
-            <button ion-button clear item-end>View</button>
+            <button ion-button clear item-end (click)="openDoc(doc.url)">View</button>
           </ion-item>
         </div>
       </ion-list>

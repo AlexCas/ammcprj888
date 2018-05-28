@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 /*
   Generated class for the RestProvider provider.
 
@@ -11,7 +12,7 @@ import { Injectable } from '@angular/core';
 export class RestProvider {
 
   url:any = 'http://fixingmexico.com/congreso/api/';
-  
+
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
   }
