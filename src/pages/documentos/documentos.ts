@@ -35,6 +35,9 @@ export class DocumentosPage {
       presentationstyle : 'pagesheet',//iOS only
       fullscreen : 'yes',//Windows only
   };
+
+  search_input: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public browser: InAppBrowser) {
     this.getDocumentos();
   }
@@ -50,9 +53,20 @@ export class DocumentosPage {
     });
   }
 
+  searchDocs(){
+    this.restProvider.searchDocuments(this.search_input)
+    .then(data => {
+      this.documentos = data;
+    });
+  }
+
   openDoc(url:any){
     let target = "_system";
     this.browser.create(url, target, this.options);
+  }
+
+  search(){
+    this.searchDocs();
   }
 
 }

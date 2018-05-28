@@ -19,7 +19,27 @@ export class RestProvider {
 
   getDocumentos(){
     return new Promise(resolve => {
-      this.http.get('http://fixingmexico.com/congreso/api/getdocumentos').subscribe(data => {
+      this.http.get(this.url + 'getdocumentos').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  searchDocuments(search){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'searchdocuments?search=' + search).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  getPrograma(){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'getprograma').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
