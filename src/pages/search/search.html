@@ -13,19 +13,20 @@
     <ion-card-content>
       <ion-list no-lines>
         <ion-item class="select-nolines">
-          <ion-label>Seleccione una Categoría</ion-label>
-          <ion-select [(ngModel)]="notifications" interface="action-sheet">
-            <ion-option value="enable">Enable</ion-option>
-            <ion-option value="mute">Mute</ion-option>
-            <ion-option value="mute_week">Mute for a week</ion-option>
+          <ion-label>Select a Category</ion-label>
+          <ion-select [(ngModel)]="category" interface="action-sheet">
+            <ion-option value="1">Program</ion-option>
+            <ion-option value="2">Exhibitors</ion-option>
+            <ion-option value="3">Documents</ion-option>
           </ion-select>
         </ion-item>
         <ion-item margin-top="30px;">
-          <ion-label stacked>¿Qué deseas buscar?</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label stacked>What do you want to find?</ion-label>
+          <ion-input type="text" [(ngModel)]="strsearch"></ion-input>
         </ion-item>
       </ion-list>
     </ion-card-content>
+    <button ion-button full (click)="search()">Search</button>
   </ion-card>
 
 </ion-content>

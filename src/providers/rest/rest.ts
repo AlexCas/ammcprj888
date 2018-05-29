@@ -47,6 +47,26 @@ export class RestProvider {
     });
   }
 
+  getToday(){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'getprogramatoday').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  getDocprogram(id:any){
+    return new Promise(resolve => {
+      this.http.get(this.url+'getdocumentosprogram?id=' + id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
 
 
 }

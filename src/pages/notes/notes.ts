@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SearchPage } from '../search/search';
+
 /**
- * Generated class for the ContactoPage page.
+ * Generated class for the NotesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,19 +10,16 @@ import { SearchPage } from '../search/search';
 
 @IonicPage()
 @Component({
-  selector: 'page-contacto',
-  templateUrl: 'contacto.html',
+  selector: 'page-notes',
+  templateUrl: 'notes.html',
 })
-export class ContactoPage {
+export class NotesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContactoPage');
+    console.log('ionViewDidLoad NotesPage');
   }
 
-  searchForm(){
-    this.navCtrl.push(SearchPage);
-  }
 }

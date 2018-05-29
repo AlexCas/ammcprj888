@@ -1,37 +1,75 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
+import { SearchPage } from '../search/search';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { NotesPage } from '../notes/notes';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  documentos: any;
+  notas:any;
+  programa: any;
+  id:any;
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    options : InAppBrowserOptions = {
+      location : 'yes',//Or 'no'
+      hidden : 'no', //Or  'yes'
+      clearcache : 'yes',
+      clearsessioncache : 'yes',
+      zoom : 'yes',//Android only ,shows browser zoom controls
+      hardwareback : 'yes',
+      mediaPlaybackRequiresUserAction : 'no',
+      shouldPauseOnSuspend : 'no', //Android only
+      closebuttoncaption : 'Close', //iOS only
+      disallowoverscroll : 'no', //iOS only
+      toolbar : 'yes', //iOS only
+      enableViewportScale : 'no', //iOS only
+      allowInlineMediaPlayback : 'no',//iOS only
+      presentationstyle : 'pagesheet',//iOS only
+      fullscreen : 'yes',//Windows only
+  };
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public browser: InAppBrowser, public toastCtrl: ToastController) {
+      this.programa = navParams.get('program');
+      console.log(this.programa);
+      this.id = navParams.get('id');
+      console.log(this.id);
+      this.getDocprogram();
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
+  getDocprogram(){
+    this.restProvider.getDocprogram(this.id)
+    .then(data => {
+      this.documentos = data;
+    })
+  }
+
+  searchForm(){
+    this.navCtrl.push(SearchPage);
+  }
+
+  openDoc(url:any){
+    let target = "_system";
+    this.browser.create(url, target, this.options);
+  }
+
+  openNotes(){
+    this.navCtrl.push(NotesPage);
+  }
+
+  addFavs(){
+    const toast = this.toastCtrl.create({
+      message: 'Add in your Marks' + this.id,
+      showCloseButton: true,
+      closeButtonText: 'Ok'
     });
+    toast.present();
   }
+
 }

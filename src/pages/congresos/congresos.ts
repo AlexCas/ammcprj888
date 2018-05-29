@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { SearchPage } from '../search/search';
 /**
  * Generated class for the CongresosPage page.
  *
@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CongresosPage {
 
-  
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -25,5 +25,8 @@ export class CongresosPage {
     console.log('ionViewDidLoad CongresosPage');
   }
 
+  searchForm(){
+    this.navCtrl.push(SearchPage);
+  }
 
 }

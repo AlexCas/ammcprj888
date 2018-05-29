@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http, Headers, RequestOptions} from '@angular/http';
-
+import { SearchPage } from '../search/search';
 /**
  * Generated class for the InteresesPage page.
  *
@@ -39,6 +39,10 @@ export class InteresesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InteresesPage');
+  }
+
+  searchForm(){
+    this.navCtrl.push(SearchPage);
   }
 
 }

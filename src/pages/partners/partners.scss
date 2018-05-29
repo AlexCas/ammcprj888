@@ -1,0 +1,48 @@
+page-partners {
+  .img-container{
+    background: linear-gradient(#53b9a6, white);
+    height: 400px;
+  }
+
+  .img-icon{
+    margin-top: 20px;
+  }
+
+  @media (max-width: 375px) and (min-width: 321px) {
+    .card-content-up{
+      border-radius: 20px;
+      margin-top: -65%;
+    }
+  }
+
+  @media (max-width: 320px) and (min-width: 300px) {
+    .card-content-up{
+      border-radius: 20px;
+      margin-top: -77%;
+    }
+  }
+
+  @media (max-width: 414px) and (min-width: 400px) {
+    .card-content-up{
+      border-radius: 20px;
+      margin-top: -55%;
+    }
+  }
+
+  @media (max-width: 768px) and (min-width: 700px) {
+    .card-content-up{
+      border-radius: 20px;
+      margin-top: -17%;
+    }
+  }
+
+  .title-primary{
+    color: white;
+    font-style: bold;
+
+  }
+
+  .card-content-item{
+  margin-bottom: 15px;
+  }
+}

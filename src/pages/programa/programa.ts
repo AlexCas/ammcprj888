@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
+import { ListPage } from '../list/list';
+import { SearchPage } from '../search/search';
 
 /**
  * Generated class for the ProgramaPage page.
@@ -15,11 +18,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProgramaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  programa: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+      this.getToday();
+      console.log(this.programa);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgramaPage');
   }
 
+  getToday(){
+    this.restProvider.getToday()
+    .then(data => {
+      this.programa = data;
+    })
+  }
+
+  tema(programa, ide){
+    this.navCtrl.push(ListPage, {
+      program: programa,
+      id: ide
+    });
+  }
+
+  searchForm(){
+    this.navCtrl.push(SearchPage);
+  }
 }

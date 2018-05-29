@@ -10,7 +10,12 @@ import { ProgramaPage } from '../pages/programa/programa';
 import { DocumentosPage } from '../pages/documentos/documentos';
 import { InteresesPage } from '../pages/intereses/intereses';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { PartnersPage } from '../pages/partners/partners';
 import { ContactoPage } from '../pages/contacto/contacto';
+import { NotesPage } from '../pages/notes/notes';
+import { ProgramsearchPage } from '../pages/programsearch/programsearch';
+import { PonentessearchPage } from '../pages/ponentessearch/ponentessearch';
+import { DocumentssearchPage } from '../pages/documentssearch/documentssearch';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,7 +41,12 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     PerfilPage,
     ContactoPage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    PartnersPage,
+    NotesPage,
+    ProgramsearchPage,
+    PonentessearchPage,
+    DocumentssearchPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +66,12 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     PerfilPage,
     ContactoPage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    PartnersPage,
+    NotesPage,
+    ProgramsearchPage,
+    PonentessearchPage,
+    DocumentssearchPage
   ],
   providers: [
     StatusBar,

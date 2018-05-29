@@ -11,7 +11,7 @@ import { DocumentosPage } from '../pages/documentos/documentos';
 import { InteresesPage } from '../pages/intereses/intereses';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ContactoPage } from '../pages/contacto/contacto';
-import { TabsPage } from '../pages/tabs/tabs';
+import { PartnersPage } from '../pages/partners/partners';
 import { SearchPage } from '../pages/search/search';
 import {Http, Headers, RequestOptions} from '@angular/http';
 
@@ -32,7 +32,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'md-home', page: 'congress' },
-      { title: 'Congress', component: CongresosPage, icon: 'md-list-box', page: 'congress' },
+      { title: 'Partners', component: PartnersPage, icon: 'md-list-box', page: 'congress' },
       { title: 'Program', component: ProgramaPage, icon: 'md-list', page: 'program' },
       { title: 'Documents', component: DocumentosPage, icon: 'md-book', page: 'documents' },
       { title: 'Marks', component: InteresesPage, icon: 'md-bookmark', page: 'congress' },

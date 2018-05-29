@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
-
+import { SearchPage } from '../search/search';
 /**
  * Generated class for the DocumentosPage page.
  *
@@ -68,5 +68,11 @@ export class DocumentosPage {
   search(){
     this.searchDocs();
   }
+
+  searchForm(){
+    this.navCtrl.push(SearchPage);
+  }
+
+
 
 }

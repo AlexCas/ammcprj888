@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SearchPage } from '../search/search';
 import { RestProvider } from '../../providers/rest/rest';
+import { ListPage } from '../list/list';
 
 @Component({
   selector: 'page-home',
@@ -23,6 +24,13 @@ export class HomePage {
 
   searchForm(){
     this.navCtrl.push(SearchPage);
+  }
+
+  tema(programa, ide){
+    this.navCtrl.push(ListPage, {
+      program: programa,
+      id: ide
+    });
   }
 
 }
