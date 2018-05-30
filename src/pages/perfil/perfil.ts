@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SearchPage } from '../search/search';
+import { RestProvider} from '../../providers/rest/rest';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the PerfilPage page.
@@ -15,11 +18,44 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PerfilPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  nombre: string;
+  notifications: number;
+  asistente: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public toastCtrl: ToastController) {
+    this.getAsistente();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
+  }
+
+  save(){
+    this.restProvider.setAsistente(this.nombre, this.notifications)
+    .then(data => {
+      const toast = this.toastCtrl.create({
+        message: 'Info Saved',
+        showCloseButton: true,
+        closeButtonText: 'Ok'
+      });
+      toast.present();
+    })
+  }
+
+  searchForm(){
+    this.navCtrl.push(SearchPage);
+  }
+
+  getAsistente(){
+    this.restProvider.getAsistente()
+    .then(data => {
+      this.asistente = data;
+
+      if (data != null) {
+        this.nombre = this.asistente.nombre;
+        this.notifications = this.asistente.notifications;
+      }
+    })
   }
 
 }

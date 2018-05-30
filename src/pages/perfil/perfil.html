@@ -13,7 +13,21 @@
 
   <ion-card class="card-content-up">
     <ion-card-content>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis praesentium omnis excepturi, nihil dicta ullam a facilis minus sed deserunt quasi, architecto explicabo soluta est, ea sunt magnam hic odit.</p>
+      <ion-list no-lines>
+      <ion-item>
+        <ion-label floating>Full Name</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Select a Category</ion-label>
+        <ion-select [(ngModel)]="notifications" interface="action-sheet">
+          <ion-option value="1">Enabled</ion-option>
+          <ion-option value="2">Disabled</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <br>
+    <button ion-button full (click)="save()">Save</button>
     </ion-card-content>
   </ion-card>
 

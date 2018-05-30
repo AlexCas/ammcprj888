@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Device } from '@ionic-native/device';
 
 /*
   Generated class for the RestProvider provider.
@@ -13,7 +13,7 @@ export class RestProvider {
 
   url:any = 'http://fixingmexico.com/congreso/api/';
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public device: Device) {
     console.log('Hello RestProvider Provider');
   }
 
@@ -67,6 +67,45 @@ export class RestProvider {
     })
   }
 
+  addMark(id){
+    return new Promise (resolve => {
+      this.http.get(this.url + 'addmark?device=' + this.device.uuid + '&id=' + id ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
+  getMarks(){
+    return new Promise (resolve => {
+      this.http.get(this.url + 'getmarks?device=' + this.device.uuid).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
+  setAsistente(nombre, notifications){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'setasistente?device=' + this.device.uuid + '&nombre=' + nombre + '&notifications=' + notifications).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
+  getAsistente(){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'getasistente?device=' + this.device.uuid).subscribe(data => {
+        resolve(data);
+      },err => {
+        console.log(err);
+      })
+    })
+  }
 
 
 }

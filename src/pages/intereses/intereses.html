@@ -14,8 +14,8 @@
   <ion-card class="card-content-up">
     <ion-card-content>
       <ion-list no-lines>
-        <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-          {{ item }}
+        <button ion-item *ngFor="let item of items" (click)="gopage(item)">
+          {{ item.nombre }}
         </button>
       </ion-list>
     </ion-card-content>

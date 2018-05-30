@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestProvider } from '../providers/rest/rest';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { Device } from '@ionic-native/device';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
-    InAppBrowser
+    InAppBrowser,
+    Device
   ]
 })
 export class AppModule {}

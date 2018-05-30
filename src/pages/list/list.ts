@@ -63,13 +63,17 @@ export class ListPage {
     this.navCtrl.push(NotesPage);
   }
 
+
   addFavs(){
-    const toast = this.toastCtrl.create({
-      message: 'Add in your Marks' + this.id,
-      showCloseButton: true,
-      closeButtonText: 'Ok'
-    });
-    toast.present();
+    this.restProvider.addMark(this.id)
+    .then(data => {
+      const toast = this.toastCtrl.create({
+        message: 'Add in your Marks',
+        showCloseButton: true,
+        closeButtonText: 'Ok'
+      });
+      toast.present();
+    })
   }
 
 }
