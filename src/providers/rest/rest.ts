@@ -107,5 +107,25 @@ export class RestProvider {
     })
   }
 
+  addNote(programa, notas){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'addnote?device=jasdhasd7a&programa=' + programa + '&notas=' + notas).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
+  getNotes(id){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'getnotes?device=' + this.device.uuid + '&id=' + id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
 
 }

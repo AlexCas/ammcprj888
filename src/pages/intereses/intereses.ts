@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import { Http, Headers, RequestOptions} from '@angular/http';
 import { SearchPage } from '../search/search';
 import { ListPage } from '../list/list';
 import { RestProvider } from '../../providers/rest/rest';

@@ -60,7 +60,9 @@ export class ListPage {
   }
 
   openNotes(){
-    this.navCtrl.push(NotesPage);
+    this.navCtrl.push(NotesPage,{
+      id: this.id,
+    });
   }
 
 

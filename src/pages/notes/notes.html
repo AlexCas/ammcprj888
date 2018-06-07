@@ -14,7 +14,14 @@
 
   <ion-card class="card-content-up">
   <ion-card-content>
-
+    <ion-list no-lines>
+      <button ion-item *ngFor="let note of notes">
+        {{ note.notas }}
+      </button>
+    </ion-list>
+    <br>
+      <ion-textarea cols="30" rows="10" placeholder="Nueva Nota" [(ngModel)]="nota"></ion-textarea>
+    <button ion-button full (click)="addNote()">Agregar Nota</button>
   </ion-card-content>
 </ion-card>
 <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
