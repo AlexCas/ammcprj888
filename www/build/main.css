@@ -30782,6 +30782,33 @@ page-intereses .card-content-item {
   margin-bottom: 15px;
 }
 
+page-intereses ion-card {
+  position: relative;
+  text-align: left;
+}
+
+page-intereses .card-title {
+  position: absolute;
+  top: .1px;
+  font-size: 1.5em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+page-intereses .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 58%;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+}
+
+page-intereses ion-card p {
+  color: white !important;
+}
+
 page-list .img-container {
   background: -webkit-gradient(linear, left top, left bottom, from(#53b9a6), to(white));
   background: linear-gradient(#53b9a6, white);

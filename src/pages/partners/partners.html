@@ -1,19 +1,20 @@
-
+<ion-header>
+  <ion-toolbar color="primary">
+    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>
+    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-fab top right edge style="margin-top: 30px;">
-    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>
-  </ion-fab>
-  <ion-fab bottom right edge style="margin-bottom: 30px;">
-    <button ion-fab color="primary" mini (click)="searchForm()"><ion-icon name="md-search"></ion-icon></button>
-  </ion-fab>
-  <div align="center" class="img-container">
-    <img class="img-icon" src="assets/imgs/partners.svg" alt="" width="20%">
-    <h3 class="title-primary">Partners</h3>
-  </div>
-
-  <ion-card class="card-content-up">
+  <ion-card>
+    <img src="https://scontent.fisj1-1.fna.fbcdn.net/v/t31.0-8/25073113_1995373284044324_8916299445039960887_o.jpg?_nc_cat=0&oh=e6ad2474003fe41e77bb42741c090bd4&oe=5BD48C6F"/>
     <ion-card-content>
-
+      <ion-card-title>
+        Wabisabi
+        </ion-card-title>
+      <p>
+        Somos una empresa que desarrolla proyectos web. Aplicaciones, paginas y software.
+      </p>
+      <button ion-button full>Go to the WebSite</button>
     </ion-card-content>
   </ion-card>
 

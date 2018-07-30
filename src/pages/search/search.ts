@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProgramsearchPage } from '../programsearch/programsearch';
 import { PonentessearchPage } from '../ponentessearch/ponentessearch';
-import { DocumentssearchPage } from '../documentssearch/documentssearch';
+import { DocumentosPage } from '../documentos/documentos';
 import { ToastController } from 'ionic-angular';
 
 /**
@@ -39,7 +39,7 @@ export class SearchPage {
             str: this.strsearch
           });
         }else if(this.category == 3){
-          this.navCtrl.push(DocumentssearchPage, {
+          this.navCtrl.push(DocumentosPage, {
             str: this.strsearch
           });
         }

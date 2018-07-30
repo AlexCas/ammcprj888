@@ -39,7 +39,10 @@ export class DocumentosPage {
   search_input: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public browser: InAppBrowser) {
-    this.getDocumentos();
+    var search = navParams.get('str');
+    this.search_input = search;
+    this.searchDocs();
+    //this.getDocumentos();
   }
 
   ionViewDidLoad() {

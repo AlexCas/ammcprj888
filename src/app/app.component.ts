@@ -34,9 +34,8 @@ export class MyApp {
       { title: 'Home', component: HomePage, icon: 'md-home', page: 'congress' },
       { title: 'Partners', component: PartnersPage, icon: 'md-list-box', page: 'congress' },
       { title: 'Program', component: ProgramaPage, icon: 'md-list', page: 'program' },
-      { title: 'Documents', component: DocumentosPage, icon: 'md-book', page: 'documents' },
       { title: 'Marks', component: InteresesPage, icon: 'md-bookmark', page: 'congress' },
-      { title: 'Profile', component: PerfilPage, icon: 'md-person', page: 'congress' },
+      { title: 'Configuration', component: PerfilPage, icon: 'md-cog', page: 'congress' },
       { title: 'Contact', component: ContactoPage, icon: 'md-contacts', page: 'contact' }
     ];
 

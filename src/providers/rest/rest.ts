@@ -109,7 +109,7 @@ export class RestProvider {
 
   addNote(programa, notas){
     return new Promise(resolve => {
-      this.http.get(this.url + 'addnote?device=jasdhasd7a&programa=' + programa + '&notas=' + notas).subscribe(data => {
+      this.http.get(this.url + 'addnote?device=' + this.device.uuid + '&programa=' + programa + '&notas=' + notas).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

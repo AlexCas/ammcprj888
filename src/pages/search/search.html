@@ -4,14 +4,8 @@
     <button navPop ion-fab color="primary" mini><ion-icon name="ios-arrow-back"></ion-icon></button>
   </ion-fab>
 
-  <div align="center" class="img-container">
-    <img class="img-icon" src="assets/imgs/lupa.svg" alt="" width="20%">
-    <h3 class="title-primary">SEARCH</h3>
-  </div>
 
-  <ion-card class="card-content-up">
-    <ion-card-content>
-      <ion-list no-lines>
+      <ion-list no-lines style="margin-top: 200px;">
         <ion-item class="select-nolines">
           <ion-label>Select a Category</ion-label>
           <ion-select [(ngModel)]="category" interface="action-sheet">
@@ -22,11 +16,10 @@
         </ion-item>
         <ion-item margin-top="30px;">
           <ion-label stacked>What do you want to find?</ion-label>
-          <ion-input type="text" [(ngModel)]="strsearch"></ion-input>
+          <ion-input placeholder="Type your search..." type="text" [(ngModel)]="strsearch"></ion-input>
         </ion-item>
       </ion-list>
-    </ion-card-content>
-    <button ion-button full (click)="search()">Search</button>
-  </ion-card>
+    <button ion-button full color="light" (click)="search()">Search</button>
+
 
 </ion-content>

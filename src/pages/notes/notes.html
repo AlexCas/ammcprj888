@@ -1,35 +1,20 @@
-
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
 <ion-content>
-  <ion-fab top right edge style="margin-top: 30px;">
-    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>
-  </ion-fab>
-  <ion-fab bottom left edge style="margin-bottom: 30px;">
-    <button navPop ion-fab color="primary" mini><ion-icon name="ios-arrow-back"></ion-icon></button>
-  </ion-fab>
-
-  <div align="center" class="img-container">
-    <img class="img-icon" src="assets/imgs/notes.svg" alt="" width="20%">
-    <h3 class="title-primary">NOTES</h3>
-  </div>
-
-  <ion-card class="card-content-up">
+  <ion-card>
   <ion-card-content>
     <ion-list no-lines>
-      <button ion-item *ngFor="let note of notes">
+      <ion-item ion-item *ngFor="let note of notes">
         {{ note.notas }}
-      </button>
+      </ion-item>
     </ion-list>
     <br>
       <ion-textarea cols="30" rows="10" placeholder="Nueva Nota" [(ngModel)]="nota"></ion-textarea>
     <button ion-button full (click)="addNote()">Agregar Nota</button>
   </ion-card-content>
 </ion-card>
-<!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-<ion-list>
-  <ion-item *ngFor="let item of items">
-    {{ item }}
-  </ion-item>
-</ion-list> -->
-
 
 </ion-content>

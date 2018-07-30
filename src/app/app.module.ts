@@ -54,7 +54,7 @@ import { NgCalendarModule } from 'ionic2-calendar';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    HttpModule
+    HttpModule,
     NgCalendarModule
   ],
   bootstrap: [IonicApp],

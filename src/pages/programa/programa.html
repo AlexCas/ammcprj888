@@ -1,51 +1,19 @@
-
+<ion-header>
+  <ion-toolbar color="primary">
+    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>
+    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-fab top right edge style="margin-top: 30px;">
-    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>
-  </ion-fab>
-  <ion-fab bottom right edge style="margin-bottom: 30px;">
-    <button ion-fab color="primary" mini (click)="searchForm()"><ion-icon name="md-search"></ion-icon></button>
-  </ion-fab>
-  <div align="center" class="img-container">
-    <img class="img-icon" src="assets/imgs/programa.svg" alt="" width="20%">
-    <h3 class="title-primary">PROGRAM</h3>
-  </div>
+  <h3 align="center">{{ viewTitle }}</h3>
+  <calendar [eventSource]="programa"
+  [calendarMode]="calendar.mode"
+  [currentDate]="calendar.currentDate"
+  (onEventSelected)="onEventSelected($event)"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)"
+  step="30"
+  class="calendar">
 
-  <ion-card class="card-content-up">
-    <ion-card-content>
-      <ion-list no-lines>
-
-        <ion-list-header>Today</ion-list-header>
-        <div *ngFor="let pro of programa">
-          <ion-item *ngIf="pro.today == 1">
-            <ion-avatar item-start>
-              <img src="{{pro.image}}">
-            </ion-avatar>
-            <h2>{{pro.id}} {{pro.nombre}}</h2>
-            <p>{{pro.ponente}}</p>
-            <ion-note item-end>{{ pro.fecha }} - {{ pro.hora }}</ion-note>
-          </ion-item>
-        </div>
-
-      </ion-list>
-
-      <ion-list no-lines>
-
-        <ion-list-header>Upcoming Events</ion-list-header>
-
-        <div *ngFor="let pro of programa">
-          <ion-item *ngIf="pro.today == 0" (click)="tema(pro, pro.id)">
-            <ion-avatar item-start>
-              <img src="{{pro.image}}">
-            </ion-avatar>
-            <h2>{{pro.nombre}}</h2>
-            <p>{{pro.ponente}} - {{ pro.fecha }}</p>
-          </ion-item>
-        </div>
-
-      </ion-list>
-
-    </ion-card-content>
-  </ion-card>
-
+  </calendar>
 </ion-content>

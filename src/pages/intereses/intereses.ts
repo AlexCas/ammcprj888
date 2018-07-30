@@ -19,6 +19,7 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class InteresesPage {
   items: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
     this.getMarks();
   }
@@ -35,6 +36,7 @@ export class InteresesPage {
     this.restProvider.getMarks()
     .then(data => {
       this.items = data;
+      console.log(data);
     })
   }
 
