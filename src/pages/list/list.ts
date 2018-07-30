@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { SearchPage } from '../search/search';
@@ -6,17 +6,20 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 import { NotesPage } from '../notes/notes';
 import { ToastController } from 'ionic-angular';
 
+declare const google;
+
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
-
+  @ViewChild('map') mapElement: ElementRef;
   documentos: any;
   notas:any;
   programa: any;
   id:any;
-
+  markers = [];
+  map: any;
     options : InAppBrowserOptions = {
       location : 'yes',//Or 'no'
       hidden : 'no', //Or  'yes'
@@ -43,6 +46,10 @@ export class ListPage {
       this.getDocprogram();
   }
 
+  ionViewDidLoad(){
+    this.initMap();
+  }
+
   getDocprogram(){
     this.restProvider.getDocprogram(this.id)
     .then(data => {
@@ -64,6 +71,32 @@ export class ListPage {
       id: this.id,
     });
   }
+
+  initMap() {
+        var latlng = new google.maps.LatLng(+this.programa.latitud, +this.programa.longitud);
+        console.log(latlng);
+        this.map = new google.maps.Map(this.mapElement.nativeElement, {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: 'roadmap',
+            disableDefaultUI: true
+        });
+        this.map.setCenter({lat: +this.programa.latitud, lng: +this.programa.longitud});
+
+        this.addMarker(latlng, 'Mark');
+
+  }
+
+  addMarker(latlng, label){
+      var marker = new google.maps.Marker({
+           position: latlng,
+           map: this.map,
+           title: label
+         });
+      this.markers.push(marker);
+
+      return marker;
+    }
 
 
   addFavs(){

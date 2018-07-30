@@ -1,56 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>
+    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-fab top right edge style="margin-top: 30px;">
-    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>
-  </ion-fab>
-  <ion-fab bottom right edge style="margin-bottom: 30px;">
-    <button ion-fab color="primary" mini (click)="searchForm()"><ion-icon name="md-search"></ion-icon></button>
-  </ion-fab>
-  <div align="center" class="img-container">
-    <img class="img-icon" src="assets/imgs/program.svg" alt="" width="20%">
-    <h3 class="title-primary">{{ programa.nombre }}</h3>
-  </div>
-
-  <ion-card class="card-content-up">
-    <ion-card-content>
-      <ion-card class="card-content-item">
-        <img src="{{ programa.image }}"/>
-        <ion-card-content>
-          <ion-card-title>
-            {{ programa.nombre }}
-            </ion-card-title>
-            <p>
-              <ion-icon name="md-contact"></ion-icon> {{ programa.ponente }}
-            </p>
-            <p>
-              <ion-icon name="md-calendar"></ion-icon> {{ programa.fecha }} - {{ programa.hora }}
-            </p>
-            <p>
-              <ion-icon name="md-leaf"></ion-icon> {{ programa.congreso }}
-            </p>
-            <br>
-            <p align="justify">{{ programa.descripcion }}</p>
-            <br>
-            <ion-list>
-              <ion-list-header>
-                Documentos
-              </ion-list-header>
-            </ion-list>
-            <ion-item *ngFor="let doc of documentos">
-              <ion-thumbnail item-start>
-                <img src="assets/imgs/book.png">
-              </ion-thumbnail>
-              <h2>{{ doc.nombre }}</h2>
-              <p>{{ doc.descripcion }}</p>
-              <button ion-button clear item-end (click)="openDoc(doc.url)">View</button>
-            </ion-item>
-
-        </ion-card-content>
-      </ion-card>
-    </ion-card-content>
+  <ion-card style="margin: 0px !important; width: 100% !important;">
+    <img style="height:220px;" src="{{ programa.image }}"/>
+    <div class="card-title" style="padding: 5px; background: #0000005e;">{{ programa.nombre }}</div>
+    <div class="card-subtitle" style="background: #0000005e;">
+      <p style="color: white !mportant">
+        <ion-icon name="md-contact"></ion-icon> <strong>{{ programa.ponente }}</strong>
+      </p>
+      <p style="color: white !mportant">
+        <ion-icon name="md-calendar"></ion-icon> <strong>{{ programa.fecha }} - {{ programa.hora }}</strong>
+      </p>
+      <p>
+        <ion-icon name="md-leaf"></ion-icon> <strong>{{ programa.congreso }}</strong>
+      </p>
+    </div>
   </ion-card>
-  <ion-fab left bottom>
-      <button ion-fab mini color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
-      <ion-fab-list side="top">
+  <ion-card>
+
+  <ion-card-header>
+    Descripción
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ programa.descripcion }}
+  </ion-card-content>
+
+</ion-card>
+  <ion-item *ngFor="let doc of documentos" no-lines>
+    <ion-thumbnail item-start>
+      <img src="assets/imgs/book.png">
+    </ion-thumbnail>
+    <h2>{{ doc.nombre }}</h2>
+    <p>{{ doc.descripcion }}</p>
+    <button ion-button clear item-end (click)="openDoc(doc.url)">View</button>
+  </ion-item>
+  <div #map id="map"></div>
+  <ion-fab right top>
+      <button ion-fab mini color="primary"><ion-icon name="arrow-dropdown"></ion-icon></button>
+      <ion-fab-list side="bottom">
         <button ion-fab (click)="addFavs()"><ion-icon name="md-star"></ion-icon></button>
         <button ion-fab (click)="openNotes()"><ion-icon name="md-copy"></ion-icon></button>
       </ion-fab-list>

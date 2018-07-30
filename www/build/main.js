@@ -1187,6 +1187,7 @@ var ListPage = /** @class */ (function () {
         this.restProvider = restProvider;
         this.browser = browser;
         this.toastCtrl = toastCtrl;
+        this.markers = [];
         this.options = {
             location: 'yes',
             hidden: 'no',
@@ -1210,6 +1211,9 @@ var ListPage = /** @class */ (function () {
         console.log(this.id);
         this.getDocprogram();
     }
+    ListPage.prototype.ionViewDidLoad = function () {
+        this.initMap();
+    };
     ListPage.prototype.getDocprogram = function () {
         var _this = this;
         this.restProvider.getDocprogram(this.id)
@@ -1229,6 +1233,27 @@ var ListPage = /** @class */ (function () {
             id: this.id,
         });
     };
+    ListPage.prototype.initMap = function () {
+        var latlng = new google.maps.LatLng(+this.programa.latitud, +this.programa.longitud);
+        console.log(latlng);
+        this.map = new google.maps.Map(this.mapElement.nativeElement, {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: 'roadmap',
+            disableDefaultUI: true
+        });
+        this.map.setCenter({ lat: +this.programa.latitud, lng: +this.programa.longitud });
+        this.addMarker(latlng, 'Mark');
+    };
+    ListPage.prototype.addMarker = function (latlng, label) {
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: this.map,
+            title: label
+        });
+        this.markers.push(marker);
+        return marker;
+    };
     ListPage.prototype.addFavs = function () {
         var _this = this;
         this.restProvider.addMark(this.id)
@@ -1241,13 +1266,18 @@ var ListPage = /** @class */ (function () {
             toast.present();
         });
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
+    ], ListPage.prototype, "mapElement", void 0);
     ListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/list/list.html"*/'<ion-content>\n  <ion-fab top right edge style="margin-top: 30px;">\n    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n  </ion-fab>\n  <ion-fab bottom right edge style="margin-bottom: 30px;">\n    <button ion-fab color="primary" mini (click)="searchForm()"><ion-icon name="md-search"></ion-icon></button>\n  </ion-fab>\n  <div align="center" class="img-container">\n    <img class="img-icon" src="assets/imgs/program.svg" alt="" width="20%">\n    <h3 class="title-primary">{{ programa.nombre }}</h3>\n  </div>\n\n  <ion-card class="card-content-up">\n    <ion-card-content>\n      <ion-card class="card-content-item">\n        <img src="{{ programa.image }}"/>\n        <ion-card-content>\n          <ion-card-title>\n            {{ programa.nombre }}\n            </ion-card-title>\n            <p>\n              <ion-icon name="md-contact"></ion-icon> {{ programa.ponente }}\n            </p>\n            <p>\n              <ion-icon name="md-calendar"></ion-icon> {{ programa.fecha }} - {{ programa.hora }}\n            </p>\n            <p>\n              <ion-icon name="md-leaf"></ion-icon> {{ programa.congreso }}\n            </p>\n            <br>\n            <p align="justify">{{ programa.descripcion }}</p>\n            <br>\n            <ion-list>\n              <ion-list-header>\n                Documentos\n              </ion-list-header>\n            </ion-list>\n            <ion-item *ngFor="let doc of documentos">\n              <ion-thumbnail item-start>\n                <img src="assets/imgs/book.png">\n              </ion-thumbnail>\n              <h2>{{ doc.nombre }}</h2>\n              <p>{{ doc.descripcion }}</p>\n              <button ion-button clear item-end (click)="openDoc(doc.url)">View</button>\n            </ion-item>\n\n        </ion-card-content>\n      </ion-card>\n    </ion-card-content>\n  </ion-card>\n  <ion-fab left bottom>\n      <button ion-fab mini color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>\n      <ion-fab-list side="top">\n        <button ion-fab (click)="addFavs()"><ion-icon name="md-star"></ion-icon></button>\n        <button ion-fab (click)="openNotes()"><ion-icon name="md-copy"></ion-icon></button>\n      </ion-fab-list>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/list/list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/list/list.html"*/'<ion-header>\n  <ion-toolbar color="primary">\n    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-card style="margin: 0px !important; width: 100% !important;">\n    <img style="height:220px;" src="{{ programa.image }}"/>\n    <div class="card-title" style="padding: 5px; background: #0000005e;">{{ programa.nombre }}</div>\n    <div class="card-subtitle" style="background: #0000005e;">\n      <p style="color: white !mportant">\n        <ion-icon name="md-contact"></ion-icon> <strong>{{ programa.ponente }}</strong>\n      </p>\n      <p style="color: white !mportant">\n        <ion-icon name="md-calendar"></ion-icon> <strong>{{ programa.fecha }} - {{ programa.hora }}</strong>\n      </p>\n      <p>\n        <ion-icon name="md-leaf"></ion-icon> <strong>{{ programa.congreso }}</strong>\n      </p>\n    </div>\n  </ion-card>\n  <ion-card>\n\n  <ion-card-header>\n    Descripción\n  </ion-card-header>\n\n  <ion-card-content>\n    {{ programa.descripcion }}\n  </ion-card-content>\n\n</ion-card>\n  <ion-item *ngFor="let doc of documentos" no-lines>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/book.png">\n    </ion-thumbnail>\n    <h2>{{ doc.nombre }}</h2>\n    <p>{{ doc.descripcion }}</p>\n    <button ion-button clear item-end (click)="openDoc(doc.url)">View</button>\n  </ion-item>\n  <div #map id="map"></div>\n  <ion-fab right top>\n      <button ion-fab mini color="primary"><ion-icon name="arrow-dropdown"></ion-icon></button>\n      <ion-fab-list side="bottom">\n        <button ion-fab (click)="addFavs()"><ion-icon name="md-star"></ion-icon></button>\n        <button ion-fab (click)="openNotes()"><ion-icon name="md-copy"></ion-icon></button>\n      </ion-fab-list>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/list/list.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _f || Object])
     ], ListPage);
     return ListPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=list.js.map
@@ -1302,7 +1332,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/home/home.html"*/'\n<ion-content>\n  <ion-fab top right edge style="margin-top: 30px;">\n    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n  </ion-fab>\n  <ion-fab bottom right edge style="margin-bottom: 30px;">\n    <button ion-fab color="primary" mini (click)="searchForm()"><ion-icon name="md-search"></ion-icon></button>\n  </ion-fab>\n\n  <div align="center" class="img-container">\n    <img class="img-icon" src="assets/imgs/calendario.svg" alt="" width="20%">\n    <h3 class="title-primary">HOME</h3>\n  </div>\n\n  <ion-card class="card-content-up">\n  <ion-card-content>\n    <ion-card class="card-content-item" *ngFor="let pro of programa">\n      <img src="{{ pro.image }}"/>\n      <ion-card-content>\n        <ion-card-title>\n          {{ pro.nombre }}\n          </ion-card-title>\n          <p>\n            <ion-icon name="md-contact"></ion-icon> {{ pro.ponente }}\n          </p>\n          <p>\n            <ion-icon name="md-calendar"></ion-icon> {{ pro.fecha }} - {{ pro.hora }}\n          </p>\n          <p>\n            <ion-icon name="md-leaf"></ion-icon> {{ pro.congreso }}\n          </p>\n\n      </ion-card-content>\n      <button ion-button full (click)="tema(pro, pro.id)">More</button>\n    </ion-card>\n  </ion-card-content>\n</ion-card>\n<!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n<ion-list>\n  <ion-item *ngFor="let item of items">\n    {{ item }}\n  </ion-item>\n</ion-list> -->\n\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="primary">\n    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n<div *ngFor="let pro of programa">\n  <ion-card style="margin: 0px !important; width: 100% !important;" (click)="tema(pro, pro.id)">\n    <img style="height:220px;" src="{{ pro.image }}"/>\n    <div class="card-title" style="padding: 5px; background: #0000005e;">{{ pro.nombre }}</div>\n    <div class="card-subtitle" style="background: #0000005e;">\n      <p style="color: white !mportant">\n        <ion-icon name="md-contact"></ion-icon> <strong>{{ pro.ponente }}</strong>\n      </p>\n      <p style="color: white !mportant">\n        <ion-icon name="md-calendar"></ion-icon> <strong>{{ pro.fecha }} - {{ pro.hora }}</strong>\n      </p>\n      <p>\n        <ion-icon name="md-leaf"></ion-icon> <strong>{{ pro.congreso }}</strong>\n      </p>\n    </div>\n  </ion-card>\n</div>\n\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]])
     ], HomePage);
