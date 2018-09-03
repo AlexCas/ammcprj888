@@ -11,8 +11,8 @@ import { Device } from '@ionic-native/device';
 @Injectable()
 export class RestProvider {
 
-  url:any = 'http://fixingmexico.com/congreso/api/';
-
+  //url:any = 'http://fixingmexico.com/congreso/api/';
+  url = 'http://www.ammacadmin.local/api/'
   constructor(public http: HttpClient, public device: Device) {
     console.log('Hello RestProvider Provider');
   }
