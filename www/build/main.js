@@ -57,6 +57,9 @@ var CongresosPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgramsearchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__list_list__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,6 +71,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 /**
  * Generated class for the ProgramsearchPage page.
  *
@@ -75,20 +81,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ProgramsearchPage = /** @class */ (function () {
-    function ProgramsearchPage(navCtrl, navParams) {
+    function ProgramsearchPage(navCtrl, navParams, restProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.restProvider = restProvider;
+        this.search = navParams.get('str');
+        console.log(this.search);
+        this.getProgram();
     }
     ProgramsearchPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProgramsearchPage');
     };
+    ProgramsearchPage.prototype.getProgram = function () {
+        var _this = this;
+        this.restProvider.searchProgram(this.search)
+            .then(function (data) {
+            console.log(data);
+            _this.programs = data;
+        });
+    };
+    ProgramsearchPage.prototype.searchForm = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__search_search__["a" /* SearchPage */]);
+    };
+    ProgramsearchPage.prototype.tema = function (programa, ide) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__list_list__["a" /* ListPage */], {
+            program: programa,
+            id: ide
+        });
+    };
     ProgramsearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-programsearch',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/programsearch/programsearch.html"*/'<!--\n  Generated template for the ProgramsearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>programsearch</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/programsearch/programsearch.html"*/,
+            selector: 'page-programsearch',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/programsearch/programsearch.html"*/'<!--\n  Generated template for the ProgramsearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-item *ngFor="let program of programs">\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/book.png">\n    </ion-thumbnail>\n    <h2>{{ program.nombre }}</h2>\n    <p>{{ program.descripcion }}</p>\n    <button ion-button clear item-end (click)="tema(program, program.id)">View</button>\n  </ion-item>\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/programsearch/programsearch.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object])
     ], ProgramsearchPage);
     return ProgramsearchPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=programsearch.js.map
@@ -102,6 +130,9 @@ var ProgramsearchPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PonentessearchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__documentssearch_documentssearch__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__ = __webpack_require__(29);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -113,6 +144,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 /**
  * Generated class for the PonentessearchPage page.
  *
@@ -120,20 +154,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var PonentessearchPage = /** @class */ (function () {
-    function PonentessearchPage(navCtrl, navParams) {
+    function PonentessearchPage(navCtrl, navParams, restProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.restProvider = restProvider;
+        this.search = navParams.get('str');
+        this.getPonentes();
     }
     PonentessearchPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PonentessearchPage');
     };
+    PonentessearchPage.prototype.getPonentes = function () {
+        var _this = this;
+        this.restProvider.searchPonente(this.search)
+            .then(function (data) {
+            console.log(data);
+            _this.ponentes = data;
+        });
+    };
+    PonentessearchPage.prototype.getProgramponente = function (ponente) {
+        var _this = this;
+        this.restProvider.getProgramaponente(ponente)
+            .then(function (data) {
+            console.log(data);
+            _this.ponentepro = data;
+            console.log('PonentePrograma');
+            console.log(data);
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__documentssearch_documentssearch__["a" /* DocumentssearchPage */], {
+                programa: data
+            });
+        });
+    };
+    PonentessearchPage.prototype.searchForm = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__search_search__["a" /* SearchPage */]);
+    };
+    PonentessearchPage.prototype.ponentee = function (ponente) {
+        this.getProgramponente(ponente);
+    };
     PonentessearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-ponentessearch',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/ponentessearch/ponentessearch.html"*/'<!--\n  Generated template for the PonentessearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>ponentessearch</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/ponentessearch/ponentessearch.html"*/,
+            selector: 'page-ponentessearch',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/ponentessearch/ponentessearch.html"*/'<!--\n  Generated template for the ProgramsearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-item *ngFor="let ponente of ponentes">\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/book.png">\n    </ion-thumbnail>\n    <h2>{{ ponente.nombre }}</h2>\n    <p>{{ ponente.especialidad }}</p>\n    <button ion-button clear item-end (click)="ponentee(ponente.id)">View</button>\n  </ion-item>\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/ponentessearch/ponentessearch.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object])
     ], PonentessearchPage);
     return PonentessearchPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=ponentessearch.js.map
@@ -277,7 +342,7 @@ var ContactoPage = /** @class */ (function () {
     };
     ContactoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contacto',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/contacto/contacto.html"*/'\n<ion-content>\n  <ion-fab top right edge style="margin-top: 30px;">\n    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n  </ion-fab>\n  <ion-fab bottom right edge style="margin-bottom: 30px;">\n    <button ion-fab color="primary" mini (click)="searchForm()"><ion-icon name="md-search"></ion-icon></button>\n  </ion-fab>\n  <div align="center" class="img-container">\n    <img class="img-icon" src="assets/imgs/contacto.svg" alt="" width="20%">\n    <h3 class="title-primary">CONTACT</h3>\n  </div>\n\n  <ion-card class="card-content-up">\n    <ion-card-content>\n      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis praesentium omnis excepturi, nihil dicta ullam a facilis minus sed deserunt quasi, architecto explicabo soluta est, ea sunt magnam hic odit.</p>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/contacto/contacto.html"*/,
+            selector: 'page-contacto',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/contacto/contacto.html"*/'\n<ion-header>\n  <ion-toolbar color="primary">\n    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content align="center">\n  <img src="assets/imgs/logoammac.png" alt="" style="width: 70%; margin-top: 20px">\n  <ion-card class="card-content-up">\n    <ion-card-content>\n      <ion-list no-lines>\n        <a href="mailto:ammac.presidencia@gmail.com" ion-item>\n          <strong>Email:</strong> ammac.presidencia@gmail.com\n        </a>\n        <a href="tel:999 271 1901" ion-item>\n          <strong>Mérida:</strong> 999 271 1901\n        </a>\n        <a href="tel:228 847 1512" ion-item>\n          <strong>Xalapa:</strong> 228 847 1512\n        </a>\n        <a href="tel:552 757 3226" ion-item>\n          <strong>CDMX:</strong> 552 757 3226\n        </a>\n      </ion-list>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/contacto/contacto.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], ContactoPage);
@@ -353,7 +418,7 @@ var NotesPage = /** @class */ (function () {
     };
     NotesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-notes',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/notes/notes.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-card>\n  <ion-card-content>\n    <ion-list no-lines>\n      <ion-item ion-item *ngFor="let note of notes">\n        {{ note.notas }}\n      </ion-item>\n    </ion-list>\n    <br>\n      <ion-textarea cols="30" rows="10" placeholder="Nueva Nota" [(ngModel)]="nota"></ion-textarea>\n    <button ion-button full (click)="addNote()">Agregar Nota</button>\n  </ion-card-content>\n</ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/notes/notes.html"*/,
+            selector: 'page-notes',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/notes/notes.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-card>\n  <ion-card-content>\n    <ion-list no-lines>\n      <ion-item ion-item *ngFor="let note of notes">\n        {{ note.notas }}\n      </ion-item>\n    </ion-list>\n    <br>\n      <ion-textarea cols="30" rows="10" placeholder="Write your note here" [(ngModel)]="nota"></ion-textarea>\n    <button ion-button full (click)="addNote()">Add</button>\n    <button ion-button full (click)="sendemail()">Send Notes to Email</button>\n  </ion-card-content>\n</ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/notes/notes.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]])
     ], NotesPage);
@@ -691,6 +756,8 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DocumentssearchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_list__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -700,6 +767,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 /**
@@ -712,17 +781,30 @@ var DocumentssearchPage = /** @class */ (function () {
     function DocumentssearchPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.programa = navParams.get('programa');
+        console.log('Hi');
+        console.log(this.programa);
     }
     DocumentssearchPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad DocumentssearchPage');
     };
+    DocumentssearchPage.prototype.searchForm = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__search_search__["a" /* SearchPage */]);
+    };
+    DocumentssearchPage.prototype.tema = function (programa, ide) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__list_list__["a" /* ListPage */], {
+            program: programa,
+            id: ide
+        });
+    };
     DocumentssearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-documentssearch',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/documentssearch/documentssearch.html"*/'<!--\n  Generated template for the DocumentssearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>documentssearch</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/documentssearch/documentssearch.html"*/,
+            selector: 'page-documentssearch',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/documentssearch/documentssearch.html"*/'<ion-header>\n  <ion-toolbar color="primary">\n    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngFor="let pro of programa">\n    <ion-card style="margin: 0px !important; width: 100% !important;" (click)="tema(pro, pro.id)">\n      <img style="height:220px;" src="{{ pro.image }}"/>\n      <div class="card-title" style="padding: 5px; background: #0000005e;">{{ pro.nombre }}</div>\n      <div class="card-subtitle" style="background: #0000005e;">\n        <p style="color: white !mportant">\n          <ion-icon name="md-contact"></ion-icon> <strong>{{ pro.ponente }}</strong>\n        </p>\n        <p style="color: white !mportant">\n          <ion-icon name="md-calendar"></ion-icon> <strong>{{ pro.fecha }} - {{ pro.hora }}</strong>\n        </p>\n        <p>\n          <ion-icon name="md-leaf"></ion-icon> <strong>{{ pro.congreso }}</strong>\n        </p>\n      </div>\n    </ion-card>\n  </div>\n\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/documentssearch/documentssearch.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
     ], DocumentssearchPage);
     return DocumentssearchPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=documentssearch.js.map
@@ -1002,6 +1084,36 @@ var RestProvider = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve) {
             _this.http.get(_this.url + 'searchdocuments?search=' + search).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.searchProgram = function (search) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.url + 'searchprogram?search=' + search).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.searchPonente = function (search) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.url + 'searchponente?search=' + search).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getProgramaponente = function (ponente) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.url + 'searchprogramponente?ponente=' + ponente).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);
@@ -1525,11 +1637,12 @@ var PerfilPage = /** @class */ (function () {
     };
     PerfilPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-perfil',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-toolbar color="primary">\n    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-list no-lines style="margin-top: 170px;">\n  <ion-item>\n    <ion-label floating>Full Name</ion-label>\n    <ion-input type="text" [(ngModel)]="nombre"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>Notifications</ion-label>\n    <ion-select [(ngModel)]="notifications" interface="action-sheet">\n      <ion-option value="1">Enabled</ion-option>\n      <ion-option value="2">Disabled</ion-option>\n    </ion-select>\n  </ion-item>\n</ion-list>\n<button ion-button full color="light" (click)="save()">Save</button>\n\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/perfil/perfil.html"*/,
+            selector: 'page-perfil',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ammcprj888/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-toolbar color="primary">\n    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>\n    <ion-searchbar (click)="searchForm()"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-list no-lines style="margin-top: 170px;">\n  <ion-item>\n    <ion-label floating>Full Name</ion-label>\n    <ion-input type="text" [(ngModel)]="nombre"></ion-input>\n  </ion-item>\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" [(ngModel)]="email"></ion-input>\n    </ion-item>\n  <ion-item>\n    <ion-label floating>Notifications</ion-label>\n    <ion-select [(ngModel)]="notifications" interface="action-sheet">\n      <ion-option value="1">Enabled</ion-option>\n      <ion-option value="2">Disabled</ion-option>\n    </ion-select>\n  </ion-item>\n</ion-list>\n<button ion-button full color="light" (click)="save()">Save</button>\n\n\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ammcprj888/src/pages/perfil/perfil.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _d || Object])
     ], PerfilPage);
     return PerfilPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=perfil.js.map

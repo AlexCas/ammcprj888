@@ -6,13 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>programsearch</ion-title>
+  <ion-navbar color="primary">
+    <ion-searchbar (click)="searchForm()"></ion-searchbar>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-item *ngFor="let program of programs">
+    <ion-thumbnail item-start>
+      <img src="assets/imgs/book.png">
+    </ion-thumbnail>
+    <h2>{{ program.nombre }}</h2>
+    <p>{{ program.descripcion }}</p>
+    <button ion-button clear item-end (click)="tema(program, program.id)">View</button>
+  </ion-item>
 </ion-content>

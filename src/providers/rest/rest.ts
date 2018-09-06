@@ -37,6 +37,36 @@ export class RestProvider {
     });
   }
 
+    searchProgram(search){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'searchprogram?search=' + search).subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+    }
+
+    searchPonente(search){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'searchponente?search=' + search).subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+    }
+
+    getProgramaponente(ponente){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'searchprogramponente?ponente=' + ponente).subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+    }
+
   getPrograma(){
     return new Promise(resolve => {
       this.http.get(this.url + 'getprograma').subscribe(data => {

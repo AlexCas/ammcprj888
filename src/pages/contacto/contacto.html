@@ -1,19 +1,29 @@
 
-<ion-content>
-  <ion-fab top right edge style="margin-top: 30px;">
-    <button menuToggle ion-fab color="light" mini><ion-icon name="md-menu"></ion-icon></button>
-  </ion-fab>
-  <ion-fab bottom right edge style="margin-bottom: 30px;">
-    <button ion-fab color="primary" mini (click)="searchForm()"><ion-icon name="md-search"></ion-icon></button>
-  </ion-fab>
-  <div align="center" class="img-container">
-    <img class="img-icon" src="assets/imgs/contacto.svg" alt="" width="20%">
-    <h3 class="title-primary">CONTACT</h3>
-  </div>
+<ion-header>
+  <ion-toolbar color="primary">
+    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>
+    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content align="center">
+  <img src="assets/imgs/logoammac.png" alt="" style="width: 70%; margin-top: 20px">
   <ion-card class="card-content-up">
     <ion-card-content>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis praesentium omnis excepturi, nihil dicta ullam a facilis minus sed deserunt quasi, architecto explicabo soluta est, ea sunt magnam hic odit.</p>
+      <ion-list no-lines>
+        <a href="mailto:ammac.presidencia@gmail.com" ion-item>
+          <strong>Email:</strong> ammac.presidencia@gmail.com
+        </a>
+        <a href="tel:999 271 1901" ion-item>
+          <strong>Mérida:</strong> 999 271 1901
+        </a>
+        <a href="tel:228 847 1512" ion-item>
+          <strong>Xalapa:</strong> 228 847 1512
+        </a>
+        <a href="tel:552 757 3226" ion-item>
+          <strong>CDMX:</strong> 552 757 3226
+        </a>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 

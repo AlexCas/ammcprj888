@@ -19,6 +19,7 @@ import { ToastController } from 'ionic-angular';
 export class PerfilPage {
 
   nombre: string;
+  email: string;
   notifications: number;
   asistente: any;
 
