@@ -47,6 +47,20 @@ export class NotesPage {
     this.navCtrl.setRoot(HomePage);
   }
 
+    sendNote(){
+        this.restProvider.sendNotes(this.id)
+            .then(data => {
+                if(data != null ){
+                    const toast = this.toastCtrl.create({
+                        message: 'Notas Enviadas',
+                        showCloseButton: true,
+                        closeButtonText: 'Ok'
+                    });
+                    toast.present();
+                }
+            });
+    }
+
   getNotes(){
     this.restProvider.getNotes(this.id)
     .then(data => {

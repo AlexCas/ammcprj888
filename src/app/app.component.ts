@@ -31,12 +31,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage, icon: 'md-home', page: 'congress' },
-      { title: 'Partners', component: PartnersPage, icon: 'md-list-box', page: 'congress' },
-      { title: 'Program', component: ProgramaPage, icon: 'md-list', page: 'program' },
-      { title: 'Marks', component: InteresesPage, icon: 'md-bookmark', page: 'congress' },
-      { title: 'Configuration', component: PerfilPage, icon: 'md-cog', page: 'congress' },
-      { title: 'Contact', component: ContactoPage, icon: 'md-contacts', page: 'contact' }
+      { title: 'Inicio', component: HomePage, icon: 'md-home', page: 'congress' },
+      { title: 'Patrocinadores', component: PartnersPage, icon: 'md-list-box', page: 'congress' },
+      { title: 'Programa', component: ProgramaPage, icon: 'md-list', page: 'program' },
+      { title: 'Marcas', component: InteresesPage, icon: 'md-bookmark', page: 'congress' },
+      { title: 'Configuración', component: PerfilPage, icon: 'md-cog', page: 'congress' },
+      { title: 'Contacto', component: ContactoPage, icon: 'md-contacts', page: 'contact' }
     ];
 
   }

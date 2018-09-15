@@ -1,28 +1,28 @@
 <ion-header>
   <ion-toolbar color="primary">
     <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>
-    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+    <ion-searchbar placeholder="Buscar" (click)="searchForm()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-list no-lines style="margin-top: 170px;">
   <ion-item>
-    <ion-label floating>Full Name</ion-label>
+    <ion-label floating>Nombre Completo</ion-label>
     <ion-input type="text" [(ngModel)]="nombre"></ion-input>
   </ion-item>
     <ion-item>
-      <ion-label floating>Email</ion-label>
+      <ion-label floating>Correo</ion-label>
       <ion-input type="text" [(ngModel)]="email"></ion-input>
     </ion-item>
   <ion-item>
-    <ion-label floating>Notifications</ion-label>
+    <ion-label floating>Notificaciones</ion-label>
     <ion-select [(ngModel)]="notifications" interface="action-sheet">
-      <ion-option value="1">Enabled</ion-option>
-      <ion-option value="2">Disabled</ion-option>
+      <ion-option value="1">Habilitadas</ion-option>
+      <ion-option value="2">Deshabilitadas</ion-option>
     </ion-select>
   </ion-item>
 </ion-list>
-<button ion-button full color="light" (click)="save()">Save</button>
+<button ion-button full color="light" (click)="save()">Guardar</button>
 
 
 </ion-content>

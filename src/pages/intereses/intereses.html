@@ -1,21 +1,21 @@
 <ion-header>
   <ion-toolbar color="primary">
     <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>
-    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+    <ion-searchbar placeholder="Buscar" (click)="searchForm()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-card style="margin: 0px !important; width: 100% !important;" (click)="gopage(pro)" *ngFor="let pro of items">
     <img style="height:220px;" src="{{ pro.programa.image }}"/>
-    <div class="card-title" style="padding: 5px; background: #0000005e;">{{ pro.programa.nombre }}</div>
+    <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px">{{ pro.programa.nombre }}</div>
     <div class="card-subtitle" style="background: #0000005e;">
-      <p style="color: white !mportant">
+      <p class="subtitle" style="color: white !mportant">
         <ion-icon name="md-contact"></ion-icon> <strong>{{ pro.programa.ponente }}</strong>
       </p>
-      <p style="color: white !mportant">
+      <p class="subtitle" style="color: white !mportant">
         <ion-icon name="md-calendar"></ion-icon> <strong>{{ pro.programa.fecha }} - {{ pro.programa.hora }}</strong>
       </p>
-      <p>
+      <p class="subtitle">
         <ion-icon name="md-leaf"></ion-icon> <strong>{{ pro.programa.congreso }}</strong>
       </p>
     </div>

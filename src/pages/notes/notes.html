@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+    <ion-searchbar placeholder="Buscar" (click)="searchForm()"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -12,9 +12,9 @@
       </ion-item>
     </ion-list>
     <br>
-      <ion-textarea cols="30" rows="10" placeholder="Write your note here" [(ngModel)]="nota"></ion-textarea>
-    <button ion-button full (click)="addNote()">Add</button>
-    <button ion-button full (click)="sendemail()">Send Notes to Email</button>
+      <ion-textarea cols="30" rows="10" placeholder="Escribe tus notas aquí" [(ngModel)]="nota"></ion-textarea>
+    <button ion-button full (click)="addNote()">Agregar</button>
+    <button ion-button full (click)="sendNote()">Enviar por Email</button>
   </ion-card-content>
 </ion-card>
 

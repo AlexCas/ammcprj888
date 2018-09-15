@@ -11,8 +11,8 @@ import { Device } from '@ionic-native/device';
 @Injectable()
 export class RestProvider {
 
-  //url:any = 'http://fixingmexico.com/congreso/api/';
-  url = 'http://www.ammacadmin.local/api/'
+  url:any = 'http://app.mastozoologiamexicana.com/api/';
+  //url = 'http://www.ammacadmin.local/api/';
   constructor(public http: HttpClient, public device: Device) {
     console.log('Hello RestProvider Provider');
   }
@@ -25,6 +25,26 @@ export class RestProvider {
         console.log(err);
       });
     });
+  }
+
+  getLastupdate(table,date){
+      return new Promise(resolve => {
+          this.http.get(this.url + 'getlastupdate/' + table + '/' + date).subscribe(data => {
+              resolve(data);
+          }, err => {
+              console.log(err);
+          });
+      });
+  }
+
+  getDate(){
+      return new Promise(resolve => {
+          this.http.get(this.url + 'getdate').subscribe(data => {
+              resolve(data);
+          }, err => {
+              console.log(err);
+          });
+      });
   }
 
   searchDocuments(search){
@@ -60,6 +80,16 @@ export class RestProvider {
     getProgramaponente(ponente){
         return new Promise(resolve => {
             this.http.get(this.url + 'searchprogramponente?ponente=' + ponente).subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+    }
+
+    sendNotes(programa){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'sendnotes/' + this.device.uuid + '/' + programa).subscribe(data => {
                 resolve(data);
             }, err => {
                 console.log(err);
@@ -117,9 +147,9 @@ export class RestProvider {
     })
   }
 
-  setAsistente(nombre, notifications){
+  setAsistente(nombre, notifications, email){
     return new Promise(resolve => {
-      this.http.get(this.url + 'setasistente?device=' + this.device.uuid + '&nombre=' + nombre + '&notifications=' + notifications).subscribe(data => {
+      this.http.get(this.url + 'setasistente?device=' + this.device.uuid + '&nombre=' + nombre + '&notifications=' + notifications + '&email=' + email).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -136,6 +166,16 @@ export class RestProvider {
       })
     })
   }
+
+    getPatrocinadores(){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'getpatrocinadores').subscribe(data => {
+                resolve(data);
+            },err => {
+                console.log(err);
+            })
+        })
+    }
 
   addNote(programa, notas){
     return new Promise(resolve => {

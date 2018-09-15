@@ -8,7 +8,12 @@ page-intereses {
       margin-top: 20px;
     }
 
-    @media (max-width: 375px) and (min-width: 321px) {
+  .subtitle{
+    font-size: 11px;
+  }
+
+
+  @media (max-width: 375px) and (min-width: 321px) {
       .card-content-up{
         border-radius: 20px;
         margin-top: -65%;

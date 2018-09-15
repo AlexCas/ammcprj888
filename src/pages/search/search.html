@@ -7,19 +7,19 @@
 
       <ion-list no-lines style="margin-top: 200px;">
         <ion-item class="select-nolines">
-          <ion-label>Select a Category</ion-label>
+          <ion-label>Selecciona una Categoria</ion-label>
           <ion-select [(ngModel)]="category" interface="action-sheet">
-            <ion-option value="1">Program</ion-option>
-            <ion-option value="2">Exhibitors</ion-option>
-            <ion-option value="3">Documents</ion-option>
+            <ion-option value="1">Programa</ion-option>
+            <ion-option value="2">Ponentes</ion-option>
+            <ion-option value="3">Documentos</ion-option>
           </ion-select>
         </ion-item>
         <ion-item margin-top="30px;">
-          <ion-label stacked>What do you want to find?</ion-label>
+          <ion-label stacked>¿Qué deseas buscar?</ion-label>
           <ion-input placeholder="Type your search..." type="text" [(ngModel)]="strsearch"></ion-input>
         </ion-item>
       </ion-list>
-    <button ion-button full color="light" (click)="search()">Search</button>
+    <button ion-button full color="light" (click)="search()">Buscar</button>
 
 
 </ion-content>

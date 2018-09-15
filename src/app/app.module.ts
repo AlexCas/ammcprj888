@@ -30,6 +30,7 @@ import { RestProvider } from '../providers/rest/rest';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Device } from '@ionic-native/device';
 import { NgCalendarModule } from 'ionic2-calendar';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { NgCalendarModule } from 'ionic2-calendar';
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     HttpModule,
-    NgCalendarModule
+    NgCalendarModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

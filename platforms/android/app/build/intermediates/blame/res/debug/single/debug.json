@@ -32,12 +32,12 @@
         "source": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/src/main/res/drawable-hdpi/ic_action_next_item.png"
     },
     {
-        "merged": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
-        "source": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png"
-    },
-    {
         "merged": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_previous_item.png.flat",
         "source": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/src/main/res/drawable-xxhdpi/ic_action_previous_item.png"
+    },
+    {
+        "merged": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
+        "source": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png"
     },
     {
         "merged": "/Applications/MAMP/htdocs/ammcprj888/platforms/android/app/build/intermediates/res/merged/debug/drawable-port-xxxhdpi_screen.png.flat",

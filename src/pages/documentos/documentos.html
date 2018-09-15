@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar color="primary">    
-    <ion-searchbar (click)="searchForm()"></ion-searchbar>
+  <ion-navbar color="primary">
+    <ion-searchbar placeholder="Buscar" (click)="searchForm()"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -15,7 +15,7 @@
             </ion-thumbnail>
             <h2>{{ doc.nombre }}</h2>
             <p>{{ doc.descripcion }}</p>
-            <button ion-button clear item-end (click)="openDoc(doc.url)">View</button>
+            <button ion-button clear item-end (click)="openDoc(doc.url)">Ir</button>
           </ion-item>
         </div>
       </ion-list>

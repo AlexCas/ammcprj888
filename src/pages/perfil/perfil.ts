@@ -32,7 +32,7 @@ export class PerfilPage {
   }
 
   save(){
-    this.restProvider.setAsistente(this.nombre, this.notifications)
+    this.restProvider.setAsistente(this.nombre, this.notifications, this.email)
     .then(data => {
       const toast = this.toastCtrl.create({
         message: 'Info Saved',
@@ -55,6 +55,7 @@ export class PerfilPage {
       if (data != null) {
         this.nombre = this.asistente.nombre;
         this.notifications = this.asistente.notifications;
+        this.email = this.asistente.email;
       }
     })
   }

@@ -30661,6 +30661,10 @@ page-documentssearch .img-icon {
   margin-top: 20px;
 }
 
+page-documentssearch .subtitle {
+  font-size: 11px;
+}
+
 page-documentssearch ion-card {
   position: relative;
   text-align: left;
@@ -30695,6 +30699,10 @@ page-home .img-container {
 
 page-home .img-icon {
   margin-top: 20px;
+}
+
+page-home .subtitle {
+  font-size: 11px;
 }
 
 page-home ion-card {
@@ -30732,6 +30740,10 @@ page-intereses .img-container {
 
 page-intereses .img-icon {
   margin-top: 20px;
+}
+
+page-intereses .subtitle {
+  font-size: 11px;
 }
 
 @media (max-width: 375px) and (min-width: 321px) {
@@ -30810,6 +30822,10 @@ page-list #map {
 
 page-list .img-icon {
   margin-top: 20px;
+}
+
+page-list .subtitle {
+  font-size: 11px;
 }
 
 page-list .card-content-up {

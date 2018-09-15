@@ -30605,53 +30605,6 @@ page-congresos .card-content-item {
   margin-bottom: 15px;
 }
 
-page-contacto .img-container {
-  background: -webkit-gradient(linear, left top, left bottom, from(#53b9a6), to(white));
-  background: linear-gradient(#53b9a6, white);
-  height: 400px;
-}
-
-page-contacto .img-icon {
-  margin-top: 20px;
-}
-
-@media (max-width: 375px) and (min-width: 321px) {
-  page-contacto .card-content-up {
-    border-radius: 20px;
-    margin-top: -65%;
-  }
-}
-
-@media (max-width: 320px) and (min-width: 300px) {
-  page-contacto .card-content-up {
-    border-radius: 20px;
-    margin-top: -77%;
-  }
-}
-
-@media (max-width: 414px) and (min-width: 400px) {
-  page-contacto .card-content-up {
-    border-radius: 20px;
-    margin-top: -55%;
-  }
-}
-
-@media (max-width: 768px) and (min-width: 700px) {
-  page-contacto .card-content-up {
-    border-radius: 20px;
-    margin-top: -17%;
-  }
-}
-
-page-contacto .title-primary {
-  color: white;
-  font-style: bold;
-}
-
-page-contacto .card-content-item {
-  margin-bottom: 15px;
-}
-
 page-documentos .img-container {
   background: -webkit-gradient(linear, left top, left bottom, from(#53b9a6), to(white));
   background: linear-gradient(#53b9a6, white);
@@ -30699,6 +30652,46 @@ page-documentos .card-content-item {
   margin-bottom: 15px;
 }
 
+page-documentssearch .img-container {
+  background: #fff;
+  height: 100%;
+}
+
+page-documentssearch .img-icon {
+  margin-top: 20px;
+}
+
+page-documentssearch .subtitle {
+  font-size: 11px;
+}
+
+page-documentssearch ion-card {
+  position: relative;
+  text-align: left;
+}
+
+page-documentssearch .card-title {
+  position: absolute;
+  top: .1px;
+  font-size: 1.5em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+page-documentssearch .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 58%;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+}
+
+page-documentssearch ion-card p {
+  color: white !important;
+}
+
 page-home .img-container {
   background: #fff;
   height: 100%;
@@ -30706,6 +30699,10 @@ page-home .img-container {
 
 page-home .img-icon {
   margin-top: 20px;
+}
+
+page-home .subtitle {
+  font-size: 11px;
 }
 
 page-home ion-card {
@@ -30743,6 +30740,10 @@ page-intereses .img-container {
 
 page-intereses .img-icon {
   margin-top: 20px;
+}
+
+page-intereses .subtitle {
+  font-size: 11px;
 }
 
 @media (max-width: 375px) and (min-width: 321px) {
@@ -30821,6 +30822,10 @@ page-list #map {
 
 page-list .img-icon {
   margin-top: 20px;
+}
+
+page-list .subtitle {
+  font-size: 11px;
 }
 
 page-list .card-content-up {
@@ -30954,53 +30959,6 @@ page-partners .title-primary {
 }
 
 page-partners .card-content-item {
-  margin-bottom: 15px;
-}
-
-page-perfil .img-container {
-  background: -webkit-gradient(linear, left top, left bottom, from(#53b9a6), to(white));
-  background: linear-gradient(#53b9a6, white);
-  height: 400px;
-}
-
-page-perfil .img-icon {
-  margin-top: 20px;
-}
-
-@media (max-width: 375px) and (min-width: 321px) {
-  page-perfil .card-content-up {
-    border-radius: 20px;
-    margin-top: -65%;
-  }
-}
-
-@media (max-width: 320px) and (min-width: 300px) {
-  page-perfil .card-content-up {
-    border-radius: 20px;
-    margin-top: -77%;
-  }
-}
-
-@media (max-width: 414px) and (min-width: 400px) {
-  page-perfil .card-content-up {
-    border-radius: 20px;
-    margin-top: -55%;
-  }
-}
-
-@media (max-width: 768px) and (min-width: 700px) {
-  page-perfil .card-content-up {
-    border-radius: 20px;
-    margin-top: -17%;
-  }
-}
-
-page-perfil .title-primary {
-  color: white;
-  font-style: bold;
-}
-
-page-perfil .card-content-item {
   margin-bottom: 15px;
 }
 
