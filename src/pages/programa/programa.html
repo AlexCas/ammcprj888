@@ -6,7 +6,8 @@
 </ion-header>
 <ion-content>
   <h3 align="center">{{ viewTitle }}</h3>
-  <calendar [eventSource]="programa"
+  <calendar [monthviewEventDetailTemplate]="monthviewDefaultEventDetailTemplate"
+  [eventSource]="programa"
   [calendarMode]="calendar.mode"
   [currentDate]="calendar.currentDate"
   (onEventSelected)="onEventSelected($event)"
@@ -15,4 +16,22 @@
   step="30"
   class="calendar">
   </calendar>
+
+    <ng-template #monthviewDefaultEventDetailTemplate let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">
+        <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false">
+                <ion-item [style.background-color]="event.program.color" [style.color]="event.program.color ? 'white' : 'black'" *ngFor="let event of selectedDate?.events" (click)="onEventSelected(event)">
+                        <span *ngIf="!event.allDay" class="monthview-eventdetail-timecolumn">
+                            <span *ngIf="event.program.color">{{ event.program.categoria }} | </span>
+                            {{event.startTime|date: 'HH:mm'}}
+                            -
+                            {{event.endTime|date: 'HH:mm'}} <br>
+                        </span>
+                <span *ngIf="event.allDay" class="monthview-eventdetail-timecolumn">All day</span>
+                <span class="event-detail">  {{event.title}}</span>
+            </ion-item>
+            <ion-item *ngIf="selectedDate?.events.length==0">
+                <div class="no-events-label">{{noEventsLabel}}</div>
+            </ion-item>
+        </ion-list>
+    </ng-template>
 </ion-content>

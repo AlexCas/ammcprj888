@@ -1,0 +1,41 @@
+page-docsgenerales {
+  .img-container{
+    background: #fff;
+    height: 100%;
+  }
+
+  .img-icon{
+    margin-top: 20px;
+  }
+
+  .subtitle{
+    font-size: 11px;
+  }
+
+  ion-card {
+    position: relative;
+    text-align: left;
+  }
+
+  .card-title {
+    position: absolute;
+    top: .1px;
+    font-size: 1.5em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 58%;
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+  }
+
+  ion-card p {
+    color: white !important;
+  }
+}

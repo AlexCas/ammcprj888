@@ -7,13 +7,13 @@
 <ion-content>
   <div *ngFor="let pro of programa">
     <ion-card style="margin: 0px !important; width: 100% !important;" (click)="tema(pro, pro.id)">
-      <img style="height:220px;" src="{{ pro.image }}"/>
-      <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px">{{ pro.nombre }}</div>
+      <img style="" src="{{ pro.image }}"/>
+      <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px" [innerHTML]="pro.nombre"></div>
       <div class="card-subtitle" style="background: #0000005e;">
-        <p class="subtitle" style="color: white !mportant">
+        <p class="subtitle" style="color: white !important">
           <ion-icon name="md-contact"></ion-icon> <strong>{{ pro.ponente }}</strong>
         </p>
-        <p class="subtitle" style="color: white !mportant">
+        <p class="subtitle" style="color: white !important">
           <ion-icon name="md-calendar"></ion-icon> <strong>{{ pro.fecha }} - {{ pro.hora }}</strong>
         </p>
         <p class="subtitle">

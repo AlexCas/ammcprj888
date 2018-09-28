@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <button menuToggle ion-button color="light" mini><ion-icon name="md-menu"></ion-icon></button>
+    <ion-searchbar placeholder="Buscar" (click)="searchForm()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card style="margin: 0px !important; width: 100% !important;">
+    <img style="" src="{{ programa.image }}"/>
+    <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px" [innerHTML]="programa.nombre"></div>
+    <div class="card-subtitle" style="background: #0000005e;">
+      <p class="subtitle subtitles">
+        <ion-icon name="md-contact"></ion-icon> <strong>{{ programa.ponente }}</strong>
+      </p>
+      <p class="subtitle subtitles" style="color: white !mportant">
+        <ion-icon name="md-calendar"></ion-icon> <strong>{{ programa.fecha }} - {{ programa.hora }}</strong>
+      </p>
+      <p class="subtitle subtitles">
+        <ion-icon name="md-leaf"></ion-icon> <strong>{{ programa.congreso }}</strong>
+      </p>
+      <p class="subtitle subtitles">
+        <ion-icon name="md-leaf"></ion-icon> <strong>{{ programa.salon }}</strong>
+      </p>
+    </div>
+  </ion-card>
+  <ion-card>
+
+    <ion-card-header>
+      Descripción
+    </ion-card-header>
+
+    <ion-card-content [innerHTML]="programa.descripcion">
+    </ion-card-content>
+
+  </ion-card>
+  <ion-item *ngFor="let doc of documentos" no-lines>
+    <ion-thumbnail item-start>
+      <img src="assets/imgs/book.png">
+    </ion-thumbnail>
+    <h2>{{ doc.nombre }}</h2>
+    <p>{{ doc.descripcion }}</p>
+    <button ion-button clear item-end (click)="openDoc(doc.url)">View</button>
+  </ion-item>
+  <div #map id="map"></div>
+  <ion-fab right top>
+    <button ion-fab mini color="primary"><ion-icon name="arrow-dropdown"></ion-icon></button>
+    <ion-fab-list side="bottom">
+      <button ion-fab (click)="addFavs()"><ion-icon name="md-star"></ion-icon></button>
+      <button ion-fab (click)="openNotes()"><ion-icon name="md-copy"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

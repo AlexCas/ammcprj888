@@ -30558,6 +30558,104 @@ ion-navbar.toolbar {
   box-shadow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);
 }
 
+page-cartel .img-container {
+  background: -webkit-gradient(linear, left top, left bottom, from(#53b9a6), to(white));
+  background: linear-gradient(#53b9a6, white);
+  height: 400px;
+}
+
+page-cartel #map {
+  height: 300px;
+}
+
+page-cartel .img-icon {
+  margin-top: 20px;
+}
+
+page-cartel .subtitle {
+  font-size: 11px;
+}
+
+page-cartel .card-content-up {
+  border-radius: 20px;
+}
+
+page-cartel .title-primary {
+  color: white;
+  font-style: bold;
+}
+
+page-cartel .card-content-item {
+  margin-bottom: 15px;
+}
+
+page-cartel ion-card {
+  position: relative;
+  text-align: left;
+}
+
+page-cartel .card-title {
+  position: absolute;
+  top: .1px;
+  font-size: 1.5em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+page-cartel .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+}
+
+page-cartel .subtitles {
+  color: white !important;
+}
+
+page-carteles .img-container {
+  background: #fff;
+  height: 100%;
+}
+
+page-carteles .img-icon {
+  margin-top: 20px;
+}
+
+page-carteles .subtitle {
+  font-size: 11px;
+}
+
+page-carteles ion-card {
+  position: relative;
+  text-align: left;
+}
+
+page-carteles .card-title {
+  position: absolute;
+  top: .1px;
+  font-size: 1.5em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+page-carteles .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 58%;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+}
+
+page-carteles ion-card p {
+  color: white !important;
+}
+
 page-congresos .img-container {
   background: -webkit-gradient(linear, left top, left bottom, from(#53b9a6), to(white));
   background: linear-gradient(#53b9a6, white);
@@ -30603,6 +30701,46 @@ page-congresos .title-primary {
 
 page-congresos .card-content-item {
   margin-bottom: 15px;
+}
+
+page-docsgenerales .img-container {
+  background: #fff;
+  height: 100%;
+}
+
+page-docsgenerales .img-icon {
+  margin-top: 20px;
+}
+
+page-docsgenerales .subtitle {
+  font-size: 11px;
+}
+
+page-docsgenerales ion-card {
+  position: relative;
+  text-align: left;
+}
+
+page-docsgenerales .card-title {
+  position: absolute;
+  top: .1px;
+  font-size: 1.5em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+page-docsgenerales .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 58%;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+}
+
+page-docsgenerales ion-card p {
+  color: white !important;
 }
 
 page-documentos .img-container {
@@ -30800,7 +30938,7 @@ page-intereses .card-title {
 page-intereses .card-subtitle {
   font-size: 1.0em;
   position: absolute;
-  top: 58%;
+  top: 32%;
   width: 100%;
   color: #fff;
   padding: 20px;
@@ -30858,13 +30996,13 @@ page-list .card-title {
 page-list .card-subtitle {
   font-size: 1.0em;
   position: absolute;
-  top: 58%;
+  top: 35%;
   width: 100%;
   color: #fff;
   padding: 20px;
 }
 
-page-list ion-card p {
+page-list .subtitles {
   color: white !important;
 }
 

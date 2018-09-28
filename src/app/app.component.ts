@@ -4,8 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { CongresosPage } from '../pages/congresos/congresos';
+import { WelcomePage } from '../pages/welcome/welcome';
 import { ProgramaPage } from '../pages/programa/programa';
 import { DocumentosPage } from '../pages/documentos/documentos';
 import { InteresesPage } from '../pages/intereses/intereses';
@@ -14,6 +13,8 @@ import { ContactoPage } from '../pages/contacto/contacto';
 import { PartnersPage } from '../pages/partners/partners';
 import { SearchPage } from '../pages/search/search';
 import {Http, Headers, RequestOptions} from '@angular/http';
+import {CartelesPage} from "../pages/carteles/carteles";
+import {DocsgeneralesPage} from "../pages/docsgenerales/docsgenerales";
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,7 @@ import {Http, Headers, RequestOptions} from '@angular/http';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = WelcomePage;
 
   pages: Array<{title: string, component: any, icon: any, page: any}>;
 
@@ -34,9 +35,11 @@ export class MyApp {
       { title: 'Inicio', component: HomePage, icon: 'md-home', page: 'congress' },
       { title: 'Patrocinadores', component: PartnersPage, icon: 'md-list-box', page: 'congress' },
       { title: 'Programa', component: ProgramaPage, icon: 'md-list', page: 'program' },
+      { title: 'Carteles', component: CartelesPage, icon: 'md-tablet-portrait', page: 'carteles' },
       { title: 'Marcas', component: InteresesPage, icon: 'md-bookmark', page: 'congress' },
+      { title: 'Documentos', component: DocsgeneralesPage, icon: 'md-book', page: 'docsgenerales' },
       { title: 'Configuración', component: PerfilPage, icon: 'md-cog', page: 'congress' },
-      { title: 'Contacto', component: ContactoPage, icon: 'md-contacts', page: 'contact' }
+      { title: 'Contacto', component: ContactoPage, icon: 'md-contacts', page: 'contact' },
     ];
 
   }

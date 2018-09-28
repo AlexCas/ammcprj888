@@ -1,0 +1,60 @@
+page-cartel {
+
+  .img-container{
+    background: linear-gradient(#53b9a6, white);
+    height: 400px;
+  }
+  #map {
+    height: 300px;
+  }
+  .img-icon{
+    margin-top: 20px;
+  }
+
+  .subtitle{
+    font-size: 11px;
+  }
+
+  .card-content-up{
+    border-radius: 20px;
+
+  }
+
+  .title-primary{
+    color: white;
+    font-style: bold;
+
+  }
+
+  .card-content-item{
+    margin-bottom: 15px;
+  }
+
+  ion-card {
+    position: relative;
+    text-align: left;
+  }
+
+  .card-title {
+    position: absolute;
+    top: .1px;
+    font-size: 1.5em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .subtitles {
+    color: white !important;
+  }
+
+}

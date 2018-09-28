@@ -13,6 +13,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { PartnersPage } from '../pages/partners/partners';
 import { ContactoPage } from '../pages/contacto/contacto';
 import { NotesPage } from '../pages/notes/notes';
+import { WelcomePage } from '../pages/welcome/welcome';
 import { ProgramsearchPage } from '../pages/programsearch/programsearch';
 import { PonentessearchPage } from '../pages/ponentessearch/ponentessearch';
 import { DocumentssearchPage } from '../pages/documentssearch/documentssearch';
@@ -31,6 +32,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Device } from '@ionic-native/device';
 import { NgCalendarModule } from 'ionic2-calendar';
 import { IonicStorageModule } from '@ionic/storage';
+import {CartelesPage} from "../pages/carteles/carteles";
+import {CartelPage} from "../pages/cartel/cartel";
+import {DocsgeneralesPage} from "../pages/docsgenerales/docsgenerales";
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { IonicStorageModule } from '@ionic/storage';
     NotesPage,
     ProgramsearchPage,
     PonentessearchPage,
-    DocumentssearchPage
+    DocumentssearchPage,
+    CartelesPage,
+    CartelPage,
+    WelcomePage,
+      DocsgeneralesPage,
   ],
   imports: [
     BrowserModule,
@@ -72,11 +80,15 @@ import { IonicStorageModule } from '@ionic/storage';
     ContactoPage,
     TabsPage,
     SearchPage,
+      WelcomePage,
     PartnersPage,
     NotesPage,
     ProgramsearchPage,
     PonentessearchPage,
-    DocumentssearchPage
+    DocumentssearchPage,
+      CartelesPage,
+      CartelPage,
+      DocsgeneralesPage,
   ],
   providers: [
     StatusBar,

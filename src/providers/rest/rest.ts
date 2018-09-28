@@ -27,6 +27,16 @@ export class RestProvider {
     });
   }
 
+    getWelcome(){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'getwelcome').subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+    }
+
   getLastupdate(table,date){
       return new Promise(resolve => {
           this.http.get(this.url + 'getlastupdate/' + table + '/' + date).subscribe(data => {
@@ -67,6 +77,8 @@ export class RestProvider {
         });
     }
 
+
+
     searchPonente(search){
         return new Promise(resolve => {
             this.http.get(this.url + 'searchponente?search=' + search).subscribe(data => {
@@ -106,6 +118,26 @@ export class RestProvider {
       });
     });
   }
+
+  getDocumentsg(){
+      return new Promise(resolve => {
+          this.http.get(this.url + 'getdocuments').subscribe(data => {
+              resolve(data);
+          }, err => {
+              console.log(err);
+          });
+      });
+  }
+
+    getCartel(){
+        return new Promise(resolve => {
+            this.http.get(this.url + 'getcartel').subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+    }
 
   getToday(){
     return new Promise(resolve => {

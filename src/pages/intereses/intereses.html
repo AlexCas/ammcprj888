@@ -6,8 +6,8 @@
 </ion-header>
 <ion-content>
   <ion-card style="margin: 0px !important; width: 100% !important;" (click)="gopage(pro)" *ngFor="let pro of items">
-    <img style="height:220px;" src="{{ pro.programa.image }}"/>
-    <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px">{{ pro.programa.nombre }}</div>
+    <img style="" src="{{ pro.programa.image }}"/>
+    <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px" [innerHTML]="pro.programa.nombre"></div>
     <div class="card-subtitle" style="background: #0000005e;">
       <p class="subtitle" style="color: white !mportant">
         <ion-icon name="md-contact"></ion-icon> <strong>{{ pro.programa.ponente }}</strong>

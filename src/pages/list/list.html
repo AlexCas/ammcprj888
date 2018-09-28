@@ -6,21 +6,21 @@
 </ion-header>
 <ion-content>
   <ion-card style="margin: 0px !important; width: 100% !important;">
-    <img style="height:220px;" src="{{ programa.image }}"/>
-    <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px">{{ programa.nombre }}</div>
+    <img style="" src="{{ programa.image }}"/>
+    <div class="card-title" style="padding: 5px; background: #0000005e; font-size: 14px" [innerHTML]="programa.nombre"></div>
     <div class="card-subtitle" style="background: #0000005e;">
-      <p class="subtitle" style="color: white !mportant">
+      <p class="subtitle subtitles">
         <ion-icon name="md-contact"></ion-icon> <strong>{{ programa.ponente }}</strong>
       </p>
-      <p class="subtitle" style="color: white !mportant">
-        <ion-icon name="md-calendar"></ion-icon> <strong>{{ programa.fecha }} - {{ programa.hora }}</strong>
+      <p class="subtitle subtitles" style="color: white !important">
+        <ion-icon name="md-calendar"></ion-icon> <strong>{{ programa.fecha }} : {{ programa.hora }} - {{ programa.hora_final }} </strong>
       </p>
-      <p class="subtitle">
+      <p class="subtitle subtitles">
         <ion-icon name="md-leaf"></ion-icon> <strong>{{ programa.congreso }}</strong>
       </p>
-        <p class="subtitle">
-            <ion-icon name="md-leaf"></ion-icon> <strong>{{ programa.salon }}</strong>
-        </p>
+      <p class="subtitle subtitles">
+        <ion-icon name="md-leaf"></ion-icon> <strong>{{ programa.salon }}</strong>
+      </p>
     </div>
   </ion-card>
   <ion-card>
@@ -29,8 +29,7 @@
     Descripción
   </ion-card-header>
 
-  <ion-card-content>
-    {{ programa.descripcion }}
+  <ion-card-content [innerHTML]="programa.descripcion">
   </ion-card-content>
 
 </ion-card>

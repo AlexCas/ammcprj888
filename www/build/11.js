@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 310:
+/***/ 318:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactoPageModule", function() { return ContactoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentosPageModule", function() { return DocumentosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contacto__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__documentos__ = __webpack_require__(115);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ContactoPageModule = /** @class */ (function () {
-    function ContactoPageModule() {
+var DocumentosPageModule = /** @class */ (function () {
+    function DocumentosPageModule() {
     }
-    ContactoPageModule = __decorate([
+    DocumentosPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__contacto__["a" /* ContactoPage */],
+                __WEBPACK_IMPORTED_MODULE_2__documentos__["a" /* DocumentosPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__contacto__["a" /* ContactoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__documentos__["a" /* DocumentosPage */]),
             ],
         })
-    ], ContactoPageModule);
-    return ContactoPageModule;
+    ], DocumentosPageModule);
+    return DocumentosPageModule;
 }());
 
-//# sourceMappingURL=contacto.module.js.map
+//# sourceMappingURL=documentos.module.js.map
 
 /***/ })
 
